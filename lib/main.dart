@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toonflix/Widgets/Button.dart';
-import 'package:toonflix/Widgets/currency_card.dart';
+import 'package:toonflix/Screens/home_screen.dart';
 
 void main() {
   runApp(const App());
@@ -12,135 +11,44 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: const Color(0xFF181818),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        const SizedBox(
-                          height: 80,
-                        ),
-                        const Text(
-                          'Hey, yun',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 32,
-                              fontWeight: FontWeight.w800),
-                        ),
-                        Text('welcome back',
-                            style: TextStyle(
-                                color: Colors.white.withOpacity(0.8),
-                                fontSize: 16)),
-                      ],
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 60,
-                ),
-                Text(
-                  'Total Balance',
-                  style: TextStyle(
-                      fontSize: 22, color: Colors.white.withOpacity(0.8)),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                const Text(
-                  '\$5 194 482',
-                  style: TextStyle(
-                      fontSize: 46,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700),
-                ),
-                const SizedBox(
-                  height: 28,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Button(
-                      text: 'Transfer',
-                      bgColor: Color(0xfff1b33b),
-                      textColor: Colors.black,
-                    ),
-                    Button(
-                      text: 'Request',
-                      bgColor: Color(0xff1f2123),
-                      textColor: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 100,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Wallets',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 36,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Text(
-                      'view All',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white.withOpacity(0.8),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const CurrencyCard(
-                  numY: 0,
-                  name: 'Euro',
-                  code: 'EUR',
-                  amount: '6 428',
-                  icon: Icons.euro_rounded,
-                  isInverted: false,
-                ),
-                const CurrencyCard(
-                  numY: -20,
-                  name: 'Bitcoin',
-                  code: 'BTC',
-                  amount: '9 785',
-                  icon: Icons.currency_bitcoin,
-                  isInverted: true,
-                ),
-                const CurrencyCard(
-                    numY: -40,
-                    name: 'Dollar',
-                    code: 'USD',
-                    amount: '428',
-                    icon: Icons.attach_money,
-                    isInverted: false),
-                const CurrencyCard(
-                    numY: -60,
-                    name: 'Won',
-                    code: 'KOR',
-                    amount: '1000',
-                    icon: Icons.money,
-                    isInverted: true)
-              ],
-            ),
-          ),
+        theme: ThemeData(
+          textTheme: const TextTheme(
+              displayLarge: TextStyle(color: Color.fromARGB(255, 14, 23, 72))),
+          cardColor: const Color(0xfff4eddb),
+          colorScheme:
+              ColorScheme.fromSwatch(backgroundColor: const Color(0xffe7626c)),
         ),
+        home: const HomeScreen());
+  }
+}
+
+class myLargeTitle extends StatefulWidget {
+  const myLargeTitle({
+    super.key,
+  });
+
+  @override
+  State<myLargeTitle> createState() => _myLargeTitleState();
+}
+
+class _myLargeTitleState extends State<myLargeTitle> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'my large title',
+      style: TextStyle(
+        fontSize: 30,
+        color: Theme.of(context).textTheme.titleLarge?.color,
       ),
     );
   }
